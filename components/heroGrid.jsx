@@ -6,7 +6,7 @@ const NavLinks = [
   { name: "Music", link: "/music", slug: "music" },
   { name: "Tour", link: "/tour", slug: "tour" },
   { name: "About", link: "/epk", slug: "epk" },
-  { name: "Exclusive", link: "/exclusive", slug: "exclusive" },
+  // { name: "Exclusive", link: "/exclusive", slug: "exclusive" },
 ];
 
 const HeroGrid = () => {

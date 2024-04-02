@@ -11,7 +11,7 @@ const NavLinks = [
   { name: "Music", slug: "music", path: "/music" },
   { name: "Tour", slug: "tour", path: "/tour" },
   { name: "About", slug: "epk", path: "/epk" },
-  { name: "Exclusive", slug: "exclusive", path: "/exclusive" },
+  // { name: "Exclusive", slug: "exclusive", path: "/exclusive" },
 ];
 
 const NavSection = () => {
@@ -101,9 +101,9 @@ const NavSection = () => {
         <div onClick={toggleMenu} className="md:hidden text-primary">
           {menuOpen ? <X /> : <AlignJustify />}
         </div>
-        <Button className="hover:scale-105 hidden md:block">
+        {/* <Button className="hover:scale-105 hidden md:block">
           <Link href="/exclusive">Get Exclusive</Link>
-        </Button>
+        </Button> */}
       </div>
     </div>
   );

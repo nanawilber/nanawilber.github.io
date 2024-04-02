@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import TokenForm from "../../components/tokenForm";
+import TokenForm from "../tokenForm";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
