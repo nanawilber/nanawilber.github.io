@@ -43,6 +43,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Build with Next.js
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
         run: pnpm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
