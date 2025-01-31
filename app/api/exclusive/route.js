@@ -44,7 +44,7 @@ export async function POST(req) {
     // ✅ Compose Email
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: "0719000292@ttu.edu.gh", // Replace with admin email
+      to: process.env.ADMIN_EMAIL, // Replace with admin email
       subject: "New Token Submission",
       text: `New submission received:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nToken: ${token}`,
     };

@@ -5,8 +5,11 @@ import { Label } from "./ui/label";
 import { useState } from "react";
 import { Copy } from "lucide-react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const TokenForm = () => {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
   const [token, setToken] = useState("");
   const [values, setValues] = useState({
     name: "",
@@ -43,6 +46,7 @@ const TokenForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     const { name, email, phone } = values;
     const validatedEmail = validateEmail(email);
     const validatedPhone = validatePhone(phone);
@@ -58,6 +62,7 @@ const TokenForm = () => {
           alert("Token received");
           setValues({ name: "", email: "", phone: "" });
           setToken("");
+          router.push("/"); // Redirect to home page
         }
       })
       .catch((err) => {
@@ -68,6 +73,7 @@ const TokenForm = () => {
       .finally(() => {
         setValues({ name: "", email: "", phone: "" });
         setToken("");
+        setLoading(false);
       });
   };
 
@@ -126,7 +132,11 @@ const TokenForm = () => {
         </Button>
         {token ? (
           <Button type="submit" onClick={handleSubmit}>
-            Submit
+            {loading ? (
+              <span className="animate-spin border-2 border-t-2 border-white rounded-full w-5 h-5"></span>
+            ) : (
+              "Submit"
+            )}
           </Button>
         ) : (
           <Button disabled>Submit</Button>
