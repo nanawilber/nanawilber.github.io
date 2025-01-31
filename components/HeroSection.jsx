@@ -8,8 +8,8 @@ const HeroSection = () => {
       id="home"
       className="container px-4 sm:px-0 w-full min-h-screen flex flex-col justify-center"
     >
-      <div className="grid md:grid-cols-2 gap-4 md:gap-8 items-center">
-        <div className="w-[calc(100%-160px)] md:w-[calc(100%-80px)] lg:w-[calc(100%-160px)] aspect-square mx-auto mt-16 border-8 border-primary flex rounded-full  overflow-hidden">
+      <div className="grid md:grid-cols-2 gap-4 md:gap-8 items-center relative">
+        <div className="w-[calc(100%-160px)] md:w-[calc(100%-80px)] lg:w-[calc(100%-160px)] aspect-square mx-auto mt-16 border-8 border-primary flex rounded-full transition duration-300 ease-in-out transform hover:scale-105  overflow-hidden">
           <Image
             src="/images/Brapurple.jpg"
             alt="Brapurple"
