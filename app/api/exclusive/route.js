@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 
 export async function POST(req) {
   try {
@@ -29,22 +30,37 @@ export async function POST(req) {
       );
     }
 
-    // Process the token (e.g., validate it)
-    // ...
+    // Send details to email
 
-    return NextResponse.json({ message: "Token received" }, { status: 201 });
+    // ✅ Configure Nodemailer
+    const transporter = nodemailer.createTransport({
+      service: "gmail", // Or use SMTP settings for another provider
+      auth: {
+        user: process.env.EMAIL_USER, // Your email (use env variables)
+        pass: process.env.EMAIL_PASSWORD, // Your email app password (not your real password)
+      },
+    });
+
+    // ✅ Compose Email
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: "0719000292@ttu.edu.gh", // Replace with admin email
+      subject: "New Token Submission",
+      text: `New submission received:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nToken: ${token}`,
+    };
+
+    // ✅ Send Email
+    await transporter.sendMail(mailOptions);
+
+    return NextResponse.json(
+      { message: "Token received and email sent to admin" },
+      { status: 201 }
+    );
   } catch (error) {
     console.error("Error processing request:", error);
     return NextResponse.json(
-      { message: "Invalid JSON format" },
-      { status: 400 }
+      { message: "Something went wrong, please try again" },
+      { status: 500 }
     );
   }
 }
-
-// export async function GET() {
-//   return NextResponse.json(
-//     { message: "GET request not allowed" },
-//     { status: 200 }
-//   );
-// }
