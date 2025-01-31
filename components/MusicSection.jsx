@@ -44,7 +44,7 @@ const MusicSection = () => {
             />
           </Link>
           <Link
-            href="https://tidal.com/"
+            href="https://tidal.com/browse/artist/45196776"
             className="socials text-primary"
             target="_blank"
           >
@@ -55,7 +55,7 @@ const MusicSection = () => {
             />
           </Link>
           <Link
-            href="https://www.deezer.com/"
+            href="https://www.deezer.com/en/artist/11130480?deferredFl=1&utm_campaign=artist&utm_source=google&utm_medium=organic"
             className="socials text-primary"
             target="_blank"
           >

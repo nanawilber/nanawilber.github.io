@@ -68,6 +68,8 @@ const TokenForm = () => {
       .catch((err) => {
         if (err.response.status === 400) {
           alert("Please fill all fields");
+        } else {
+          alert("An error occurred. Please try again:", err.message);
         }
       })
       .finally(() => {

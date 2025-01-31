@@ -36,15 +36,15 @@ export async function POST(req) {
     const transporter = nodemailer.createTransport({
       service: "gmail", // Or use SMTP settings for another provider
       auth: {
-        user: process.env.EMAIL_USER, // Your email (use env variables)
-        pass: process.env.EMAIL_PASSWORD, // Your email app password (not your real password)
+        user: "unique.theo98@gmail.com", // Your email (use env variables)
+        pass: "qhhc qiie ohxh hzrd", // Your email app password (not your real password)
       },
     });
 
     // ✅ Compose Email
     const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.ADMIN_EMAIL, // Replace with admin email
+      from: "unique.theo98@gmail.com",
+      to: "0719000292@ttu.edu.gh", // Replace with admin email
       subject: "New Token Submission",
       text: `New submission received:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nToken: ${token}`,
     };
