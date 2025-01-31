@@ -11,8 +11,8 @@ const HowItWorks = () => {
       <div className="pb-4">
         <p className="pb-4">
           Be among the first to listen to Brapurple's unreleased song,
-          <span className="text-primary">"Thanks Giving II ft MAGIK"</span>.
-          Just follow these simple steps:
+          <span className="text-primary">"Thanksgiving PT2 ft Hitz Magik"</span>
+          . Just follow these simple steps:
         </p>
         <ol className="list-decimal list-inside flex flex-col gap-2 pl-4">
           <li>
