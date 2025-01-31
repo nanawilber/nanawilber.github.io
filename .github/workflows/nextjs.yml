@@ -41,7 +41,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: brapurple.me
+      url: https://brapurple.me/
     runs-on: ubuntu-latest
     needs: build
     steps:
