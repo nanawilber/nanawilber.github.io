@@ -1,11 +1,13 @@
 "use client";
 import { Input } from "./ui/input";
+import PhoneInput from "react-phone-number-input";
 import { Button } from "./ui/button";
 import { Label } from "./ui/label";
 import { useState } from "react";
 import { Copy } from "lucide-react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import "react-phone-number-input/style.css";
 
 const TokenForm = () => {
   const router = useRouter();
@@ -52,8 +54,10 @@ const TokenForm = () => {
     const validatedPhone = validatePhone(phone);
     const validatedName = validateName(name);
 
-    console.log(validatedName, validatedEmail, validatedPhone);
     const payload = { name, email, phone, token };
+
+    console.log(payload);
+    console.log(validatedPhone);
 
     axios
       .post("/api/exclusive", payload)
@@ -108,17 +112,14 @@ const TokenForm = () => {
           }
         />
         <div className="phone">
-          <Label htmlFor="phone">Phone Number (with country code):</Label>
-          <Input
+          {/* <Label htmlFor="phone">Phone Number (with country code):</Label> */}
+          <PhoneInput
+            className="border border-gray-300 rounded-md p-2 w-full"
             id="phone"
-            type="tel"
             placeholder="+233 12 345 6789"
             value={values.phone}
-            onChange={(e) =>
-              setValues((prev) => {
-                return { ...prev, phone: e.target.value };
-              })
-            }
+            onChange={(phone) => setValues((prev) => ({ ...prev, phone }))}
+            defaultCountry="GH" // Optional: Set a default country (e.g., Ghana)
           />
         </div>
 
