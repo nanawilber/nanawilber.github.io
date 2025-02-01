@@ -56,9 +56,10 @@ const TokenForm = () => {
 
     const payload = { name, email, phone, token };
 
-    console.log(payload);
-    console.log(validatedPhone);
-
+    if (!validatedEmail || !validatedPhone || !validatedName) {
+      alert("Please provide valid details");
+      return;
+    }
     axios
       .post("/api/exclusive", payload)
       .then((res) => {
