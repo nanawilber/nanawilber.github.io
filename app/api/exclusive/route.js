@@ -22,7 +22,7 @@ export async function POST(req) {
       );
     }
 
-    const phoneRegex = /^\+[1-9]{1}[0-9]{3,14}$/; // Example: Simple 10-digit phone number validation
+    const phoneRegex = /^0\d{9}$/; // Example: Simple 10-digit phone number validation
     if (!phoneRegex.test(phone)) {
       return NextResponse.json(
         { message: "Please provide a valid phone number" },

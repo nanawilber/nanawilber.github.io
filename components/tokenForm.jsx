@@ -37,7 +37,7 @@ const TokenForm = () => {
   };
 
   const validatePhone = (phone) => {
-    const re = /^\+[1-9]{1}[0-9]{3,14}$/;
+    const re = /^0\d{9}$/;
     return re.test(phone);
   };
 
@@ -65,7 +65,7 @@ const TokenForm = () => {
       .post(`${baseUrl}/api/exclusive`, payload)
       .then((res) => {
         if (res.status === 201) {
-          alert("Token received");
+          alert("Token received, check your email");
           setValues({ name: "", email: "", phone: "" });
           setToken("");
           router.push("/"); // Redirect to home page
@@ -86,7 +86,7 @@ const TokenForm = () => {
   };
 
   return (
-    <div className="form p-0 sm:p-6 my-6 max-w-[550px] sm:bg-white sm:dark:bg-black/50 rounded-lg sm:shadow">
+    <div className="form p-0 sm:p-6 my-6 max-w-[550px] sm:w-[500px] sm:bg-white sm:dark:bg-black/50 rounded-lg sm:shadow">
       <form className="form grid w-full gap-6">
         {/* <Label htmlFor="name">Name:</Label> */}
         <Input
@@ -115,13 +115,16 @@ const TokenForm = () => {
         />
         <div className="phone">
           {/* <Label htmlFor="phone">Phone Number (with country code):</Label> */}
-          <PhoneInput
-            className="border border-gray-300 rounded-md p-2"
+          <Input
             id="phone"
-            placeholder="+233 12 345 6789"
+            type="tel"
+            placeholder="0203456789"
             value={values.phone}
-            onChange={(phone) => setValues((prev) => ({ ...prev, phone }))}
-            defaultCountry="GH" // Optional: Set a default country (e.g., Ghana)
+            onChange={(e) =>
+              setValues((prev) => {
+                return { ...prev, phone: e.target.value };
+              })
+            }
           />
         </div>
 
