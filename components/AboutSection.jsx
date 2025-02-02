@@ -6,7 +6,8 @@ const images = [
   { src: "/images/001.jpg", alt: "image1" },
   { src: "/images/002.jpg", alt: "image2" },
   { src: "/images/003.jpg", alt: "image3" },
-  { src: "/images/004.jpg", alt: "image4" },
+  // { src: "/images/004.jpg", alt: "image4" },
+  { src: "/images/005.jpg", alt: "image5" },
 ];
 
 const AboutSection = () => {
