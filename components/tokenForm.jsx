@@ -59,6 +59,7 @@ const TokenForm = () => {
 
     if (!validatedEmail || !validatedPhone || !validatedName) {
       alert("Please provide valid details");
+      setLoading(false);
       return;
     }
     axios
@@ -141,7 +142,7 @@ const TokenForm = () => {
         {token ? (
           <Button type="submit" onClick={handleSubmit}>
             {loading ? (
-              <span className="animate-spin border-2 border-t-2 border-white rounded-full w-5 h-5"></span>
+              <span className="animate-spin border-2 border-t-2 border-dashed border-white rounded-full w-5 h-5"></span>
             ) : (
               "Submit"
             )}
