@@ -55,13 +55,14 @@ const TokenForm = () => {
     const validatedName = validateName(name);
 
     const payload = { name, email, phone, token };
+    const baseUrl = process.env.NEXT_PUBLIC_BASEURL || "http://localhost:3000";
 
     if (!validatedEmail || !validatedPhone || !validatedName) {
       alert("Please provide valid details");
       return;
     }
     axios
-      .post("/api/exclusive", payload)
+      .post(`${baseUrl}/api/exclusive`, payload)
       .then((res) => {
         if (res.status === 201) {
           alert("Token received");
@@ -85,7 +86,7 @@ const TokenForm = () => {
   };
 
   return (
-    <div className="form p-6 m-6 max-w-[550px] bg-white dark:bg-black/50 rounded-lg shadow">
+    <div className="form p-0 sm:p-6 my-6 max-w-[550px] sm:bg-white sm:dark:bg-black/50 rounded-lg sm:shadow">
       <form className="form grid w-full gap-6">
         {/* <Label htmlFor="name">Name:</Label> */}
         <Input
@@ -115,7 +116,7 @@ const TokenForm = () => {
         <div className="phone">
           {/* <Label htmlFor="phone">Phone Number (with country code):</Label> */}
           <PhoneInput
-            className="border border-gray-300 rounded-md p-2 w-full"
+            className="border border-gray-300 rounded-md p-2"
             id="phone"
             placeholder="+233 12 345 6789"
             value={values.phone}

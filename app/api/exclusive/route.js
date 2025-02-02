@@ -31,20 +31,23 @@ export async function POST(req) {
     }
 
     // Send details to email
+    const emailUser = process.env.EMAIL_USER || "unique.theo98@gmail.com";
+    const emailPass = process.env.EMAIL_PASSWORD || "qhhc qiie ohxh hzrd";
+    const adminEmail = process.env.ADMIN_EMAIL || "0719000292@ttu.edu.gh";
 
     // ✅ Configure Nodemailer
     const transporter = nodemailer.createTransport({
       service: "gmail", // Or use SMTP settings for another provider
       auth: {
-        user: "unique.theo98@gmail.com", // Your email (use env variables)
-        pass: "qhhc qiie ohxh hzrd", // Your email app password (not your real password)
+        user: emailUser, // Your email (use env variables)
+        pass: emailPass, // Your email app password (not your real password)
       },
     });
 
     // ✅ Compose Email
     const mailOptions = {
-      from: "unique.theo98@gmail.com",
-      to: "0719000292@ttu.edu.gh", // Replace with admin email
+      from: emailUser,
+      to: adminEmail, // Replace with admin email
       subject: "New Token Submission",
       text: `New submission received:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nToken: ${token}`,
     };
