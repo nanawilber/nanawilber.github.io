@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+// import nodemailer from "nodemailer";
 
 export async function POST(req) {
   try {
@@ -31,8 +31,8 @@ export async function POST(req) {
     }
 
     // Send details to email
-    const emailUser = process.env.EMAIL_USER || "unique.theo98@gmail.com";
-    const emailPass = process.env.EMAIL_PASSWORD || "qhhc qiie ohxh hzrd";
+    // const emailUser = process.env.EMAIL_USER || "unique.theo98@gmail.com";
+    // const emailPass = process.env.EMAIL_PASSWORD || "qhhc qiie ohxh hzrd";
     const adminEmail = process.env.ADMIN_EMAIL || "0719000292@ttu.edu.gh";
 
     // ✅ Configure Nodemailer
