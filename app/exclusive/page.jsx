@@ -20,7 +20,7 @@ const ExclusivePage = () => {
     <main className="w-full">
       <div className="container mx-auto mt-16">
         <p className="text-xl font-bold text-center my-10 pt-6">
-          {`🔥Brapurple's 03:02 Releases drops exclusive for just $1. ${
+          {`Brapurple's 03:02 Releases drops exclusive for just $1. ${
             isMomo ? "Complete payment" : "Choose payment method"
           } below to get an exclusive listen.`}
         </p>
