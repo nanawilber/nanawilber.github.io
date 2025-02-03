@@ -36,27 +36,27 @@ export async function POST(req) {
     const adminEmail = process.env.ADMIN_EMAIL || "0719000292@ttu.edu.gh";
 
     // ✅ Configure Nodemailer
-    const transporter = nodemailer.createTransport({
-      service: "gmail", // Or use SMTP settings for another provider
-      auth: {
-        user: emailUser, // Your email (use env variables)
-        pass: emailPass, // Your email app password (not your real password)
-      },
-    });
+    // const transporter = nodemailer.createTransport({
+    //   service: "gmail", // Or use SMTP settings for another provider
+    //   auth: {
+    //     user: emailUser, // Your email (use env variables)
+    //     pass: emailPass, // Your email app password (not your real password)
+    //   },
+    // });
 
     // ✅ Compose Email
-    const mailOptions = {
-      from: emailUser,
-      to: adminEmail, // Replace with admin email
-      subject: "New Token Submission",
-      text: `New submission received:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nToken: ${token}`,
-    };
+    // const mailOptions = {
+    //   from: emailUser,
+    //   to: adminEmail, // Replace with admin email
+    //   subject: "New Token Submission",
+    //   text: `New submission received:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nToken: ${token}`,
+    // };
 
     // ✅ Send Email
-    await transporter.sendMail(mailOptions);
+    // await transporter.sendMail(mailOptions);
 
     return NextResponse.json(
-      { message: "Token received and email sent to admin" },
+      { message: `Token received and ${email} sent to admin, ${adminEmail}` },
       { status: 201 }
     );
   } catch (error) {
