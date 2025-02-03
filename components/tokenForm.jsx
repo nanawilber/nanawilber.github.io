@@ -53,7 +53,8 @@ const TokenForm = () => {
 
     const payload = { name, email, phone, token };
     const baseUrl = process.env.NEXT_PUBLIC_BASEURL || "https://brapurple.me";
-    const pipedreamTrigger = "https://eozyd7ejcecls9p.m.pipedream.net";
+    const pipedreamTriggerMock = "https://eozyd7ejcecls9p.m.pipedream.net";
+    const pipedreamTrigger = "https://eowgfv329ntcjtn.m.pipedream.net";
 
     if (!validatedEmail || !validatedPhone || !validatedName) {
       alert("Please provide valid details");
