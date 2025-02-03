@@ -13,7 +13,9 @@ const ExclusivePage = () => {
   const router = useRouter();
 
   const routeToBandCamp = () => {
-    router.push("https://brapurple.bandcamp.com/");
+    router.push(
+      "https://brapurple.bandcamp.com/track/thanksgiving-pt2-ft-hitz-magik"
+    );
   };
 
   return (
@@ -23,7 +25,7 @@ const ExclusivePage = () => {
           Listen to "Thanksgiving PT2 ft Hitz magik" for $1
         </p>
 
-        <div className="flex gap-6 m-2 w-full justify-center">
+        <div className="flex flex-col sm:flex-row gap-6 m-2 w-full justify-center">
           {!isMomo && (
             <>
               <div
