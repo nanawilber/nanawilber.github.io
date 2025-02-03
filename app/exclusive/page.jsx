@@ -73,12 +73,12 @@ const ExclusivePage = () => {
                 <li>Use the generated token as your REFERENCE.</li>
                 <li>Voila!, check your mail for the song and enjoy</li>
               </ol>
-              <div className="w-full flex justify-start mt-6">
+              {/* <div className="w-full flex justify-start mt-6">
                 <Button className="" onClick={() => setIsMomo(false)}>
                   <ArrowLeft />
                   Back
                 </Button>
-              </div>
+              </div> */}
             </div>
             <div className="token form max-w-[550px] px-4 md:px-0">
               <TokenForm />

@@ -9,7 +9,7 @@ const MusicSection = () => {
           My <span className="text-primary">Music</span>
         </h2>
         <p>Checkout my music on all streaming platforms</p>
-        <div className="flex gap-3 pt-4">
+        <div className="flex flex-wrap gap-3 pt-4">
           <Link
             href="https://music.apple.com/gh/artist/brapurple/1161651000"
             className="socials text-primary"

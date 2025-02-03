@@ -2,7 +2,7 @@
 // import TokenForm from "./../../components/tokenForm";
 
 export const metadata = {
-  title: "eXclusive Music",
+  title: "Brapurple Exclusive",
   description: "Get Exclusive Music from Brapurple",
 };
 

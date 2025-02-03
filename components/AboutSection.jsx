@@ -6,7 +6,6 @@ const images = [
   { src: "/images/001.jpg", alt: "image1" },
   { src: "/images/002.jpg", alt: "image2" },
   { src: "/images/003.jpg", alt: "image3" },
-  // { src: "/images/004.jpg", alt: "image4" },
   { src: "/images/005.jpg", alt: "image5" },
 ];
 
@@ -18,25 +17,6 @@ const AboutSection = () => {
           About <span className="text-primary">me</span>
         </h2>
 
-        {/* {about.map((item, index) => (
-          <div key={index}>
-            <div className="w-full lg:max-w-[50%] my-6">
-              <h2 className="font-semi-bold text-2xl my-4">{item.title}</h2>
-              <p>{item.content}</p>
-            </div>
-            {images[index] && (
-              <div>
-                <Image
-                  src={images[index].src}
-                  alt={images[index].alt}
-                  width={500}
-                  height={300}
-                  className="object-cover"
-                />
-              </div>
-            )}
-          </div>
-        ))} */}
         {about.map((item, index) => (
           <div key={index} className="flex flex-col lg:flex-row gap-8 my-6">
             {/* Text Content (Left on lg:) */}
