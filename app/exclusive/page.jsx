@@ -20,12 +20,12 @@ const ExclusivePage = () => {
 
   return (
     <main className="w-full">
-      <div className="container mx-auto mt-16">
+      <div className="container mx-auto mt-16 px-4 sm:px-0">
         <p className="text-xl font-bold text-center mb-10">
-          Listen to "Thanksgiving PT2 ft Hitz magik" for $1
+          Listen to "Thanksgiving PT2 ft Hitz Magik" for $1
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-6 m-2 w-full justify-center">
+        <div className="flex flex-wrap gap-6 m-2 w-full justify-center">
           {!isMomo && (
             <>
               <div
@@ -41,7 +41,7 @@ const ExclusivePage = () => {
                   alt="mtn momo"
                   className="object-cover w-full h-[100px]"
                 />
-                <span>For Ghana Users</span>
+                <span className="uppercase">For Ghana Users</span>
               </div>
               <div
                 onClick={routeToBandCamp}
@@ -54,7 +54,7 @@ const ExclusivePage = () => {
                   alt="bandcamp"
                   className="object-cover w-full h-[100px]"
                 />
-                <span>Outside Ghana & Rest of the World</span>
+                <span className="uppercase">Ghana & Rest of the World</span>
               </div>
             </>
           )}
