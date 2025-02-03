@@ -1,13 +1,10 @@
 "use client";
 import { Input } from "./ui/input";
-import PhoneInput from "react-phone-number-input";
 import { Button } from "./ui/button";
-import { Label } from "./ui/label";
 import { useState } from "react";
 import { Copy } from "lucide-react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import "react-phone-number-input/style.css";
 
 const TokenForm = () => {
   const router = useRouter();
@@ -56,6 +53,7 @@ const TokenForm = () => {
 
     const payload = { name, email, phone, token };
     const baseUrl = process.env.NEXT_PUBLIC_BASEURL || "https://brapurple.me";
+    const pipedreamTrigger = "https://eozyd7ejcecls9p.m.pipedream.net";
 
     if (!validatedEmail || !validatedPhone || !validatedName) {
       alert("Please provide valid details");
@@ -63,9 +61,9 @@ const TokenForm = () => {
       return;
     }
     axios
-      .post(`${baseUrl}/api/exclusive`, payload)
+      .post(pipedreamTrigger, payload)
       .then((res) => {
-        if (res.status === 201) {
+        if (res.status === 201 || res.status === 200) {
           alert("Token received, check your email");
           setValues({ name: "", email: "", phone: "" });
           setToken("");
@@ -89,7 +87,6 @@ const TokenForm = () => {
   return (
     <div className="form p-0 sm:p-6 my-6 max-w-[550px] sm:w-[500px] sm:bg-white sm:dark:bg-black/50 rounded-lg sm:shadow">
       <form className="form grid w-full gap-6">
-        {/* <Label htmlFor="name">Name:</Label> */}
         <Input
           id="name"
           type="text"
@@ -102,7 +99,6 @@ const TokenForm = () => {
           }
         />
 
-        {/* <Label htmlFor="email">Email:</Label> */}
         <Input
           id="email"
           type="email"
@@ -115,7 +111,6 @@ const TokenForm = () => {
           }
         />
         <div className="phone">
-          {/* <Label htmlFor="phone">Phone Number (with country code):</Label> */}
           <Input
             id="phone"
             type="tel"
