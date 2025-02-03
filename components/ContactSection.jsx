@@ -53,10 +53,6 @@ const ContactSection = () => {
           <div className="grid grid-cols-[150px,1fr] w-full">
             <div className="title flex flex-col gap-3 font-bold">
               <div className="flex gap-2">
-                <MapPin />
-                Address
-              </div>
-              <div className="flex gap-2">
                 <Mail />
                 Email
               </div>
