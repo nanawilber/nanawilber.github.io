@@ -55,7 +55,7 @@ const TokenForm = () => {
     const validatedName = validateName(name);
 
     const payload = { name, email, phone, token };
-    const baseUrl = process.env.NEXT_PUBLIC_BASEURL || "http://localhost:3000";
+    const baseUrl = process.env.NEXT_PUBLIC_BASEURL || "https://brapurple.me";
 
     if (!validatedEmail || !validatedPhone || !validatedName) {
       alert("Please provide valid details");
