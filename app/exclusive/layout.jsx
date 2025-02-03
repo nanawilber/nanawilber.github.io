@@ -15,6 +15,9 @@ export default function ExclusiveLayout({ children }) {
         </h1>
 
         <div>{children}</div>
+        <h1 className="text-2xl font-bold uppercase text-center my-10 pt-6">
+          Release Date: 17th February 2025
+        </h1>
       </div>
     </main>
   );
