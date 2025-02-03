@@ -66,9 +66,8 @@ const ContactSection = () => {
               </div>
             </div>
             <div className="content flex flex-col gap-3">
-              <div className="address">Brook 103, Vancouver, Canada</div>
               <div className="address">info@brapurple.com</div>
-              <div className="address">+1 82 527 6938</div>
+              <div className="address">+233 50 655 5528</div>
             </div>
           </div>
         </div>

@@ -87,6 +87,15 @@ const TokenForm = () => {
 
   return (
     <div className="form p-0 sm:p-6 my-6 max-w-[550px] sm:w-[500px] sm:bg-white sm:dark:bg-black/50 rounded-lg sm:shadow">
+      {token && (
+        <div className="token-board p-3 mb-4 flex flex-col w-full rounded-lg bg-slate-900 text-white dark:bg-slate-100 dark:text-black">
+          <span className="text-3xl">{token}</span>
+
+          <div className="flex gap-4">
+            Token generated successfully! <Copy onClick={copyToken} />
+          </div>
+        </div>
+      )}
       <form className="form grid w-full gap-6">
         <Input
           id="name"

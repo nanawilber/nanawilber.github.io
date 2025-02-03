@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import TokenForm from "../../components/tokenForm";
 import HowItWorks from "../../components/ui/how";
-import { Link } from "lucide-react";
+import { ArrowLeft, Link } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
@@ -19,27 +19,41 @@ const ExclusivePage = () => {
   return (
     <main className="w-full">
       <div className="container mx-auto mt-16">
-        <p className="text-xl font-bold text-center my-10 pt-6">
-          {`Brapurple's 03:02 Releases drops exclusive for just $1. ${
-            isMomo ? "Complete payment" : "Choose payment method"
-          } below to get an exclusive listen.`}
+        <p className="text-xl font-bold text-center mb-10">
+          Listen to "Thanksgiving PT2 ft Hitz magik" for $1
         </p>
 
         <div className="flex gap-6 m-2 w-full justify-center">
           {!isMomo && (
             <>
-              <Button onClick={routeToBandCamp} className="hover:scale-105">
-                Buy with BandCamp
-              </Button>
-              <Button
-                variant="secondary"
-                className="hover:scale-105"
+              <div
+                className="flex flex-col gap-3 hover:scale-105"
                 onClick={() => {
                   setIsMomo(true);
                 }}
               >
-                Buy with Momo
-              </Button>
+                <Image
+                  src="/images/MTN.png"
+                  width={100}
+                  height={50}
+                  alt="mtn momo"
+                  className="object-cover w-full h-[100px]"
+                />
+                <span>For Ghana Users</span>
+              </div>
+              <div
+                onClick={routeToBandCamp}
+                className="flex flex-col gap-3 hover:scale-105"
+              >
+                <Image
+                  src="/images/BAND.png"
+                  width={100}
+                  height={50}
+                  alt="bandcamp"
+                  className="object-cover w-full h-[100px]"
+                />
+                <span>Outside Ghana & Rest of the World</span>
+              </div>
             </>
           )}
         </div>
@@ -48,24 +62,24 @@ const ExclusivePage = () => {
             <div className="instructions max-w-[550px] px-4 md:px-0">
               <p>To pay with Momo, follow the steps below.</p>
               <ol className="list-decimal list-inside flex flex-col gap-2 pl-4">
-                <li>Fill out the form with your details</li>
-                <li>Generate your unique token and copy it for reference.</li>
-                <li>Hit the submit button to proceed.</li>
-                <li>
-                  Start your momo transfer prompt. (*170# for MTN, *110# for
-                  telecel, and AirtelTigo)
-                </li>
-                <li>Enter 20ghs or more as the amount.</li>
-                <li>Use your copied token as the reference.</li>
+                <li>Fill the form with your details accurately</li>
+                <li>Generate token and copy as your REFERENCE</li>
+                <li>Hit SUBMIT</li>
+                <li>Start your momo transfer prompt (eg. *170# for MTN)</li>
+                <li>Send to 0559982872 (Nanabanyin Wilberforce)</li>
+                <li>Enter GHC 16.99</li>
+                <li>Use the generated token as your REFERENCE.</li>
+                <li>Voila!, check your mail for the song and enjoy</li>
               </ol>
+              <div className="w-full flex justify-start mt-6">
+                <Button className="" onClick={() => setIsMomo(false)}>
+                  <ArrowLeft />
+                  Back
+                </Button>
+              </div>
             </div>
             <div className="token form max-w-[550px] px-4 md:px-0">
               <TokenForm />
-            </div>
-            <div className="w-full flex justify-center">
-              <Button className="" onClick={() => setIsMomo(false)}>
-                Back
-              </Button>
             </div>
           </div>
         )}
