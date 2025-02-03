@@ -3,8 +3,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import TokenForm from "../../components/tokenForm";
-import HowItWorks from "../../components/ui/how";
-import { ArrowLeft, Link } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
@@ -13,8 +11,12 @@ const ExclusivePage = () => {
   const router = useRouter();
 
   const routeToBandCamp = () => {
-    router.push(
-      "https://brapurple.bandcamp.com/track/thanksgiving-pt2-ft-hitz-magik"
+    // router.push(
+    //   "https://brapurple.bandcamp.com/track/thanksgiving-pt2-ft-hitz-magik"
+    // );
+    window.open(
+      "https://brapurple.bandcamp.com/track/thanksgiving-pt2-ft-hitz-magik",
+      "_blank"
     );
   };
 
