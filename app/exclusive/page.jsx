@@ -41,7 +41,7 @@ const ExclusivePage = () => {
                   width={100}
                   height={50}
                   alt="mtn momo"
-                  className="object-cover w-full h-[100px]"
+                  className="object-cover w-full h-[100px] rounded-lg shadow-lg"
                 />
                 <span className="uppercase">For Ghana Users</span>
               </div>
@@ -54,7 +54,7 @@ const ExclusivePage = () => {
                   width={100}
                   height={50}
                   alt="bandcamp"
-                  className="object-cover w-full h-[100px]"
+                  className="object-cover w-full h-[100px] rounded-lg shadow-lg"
                 />
                 <span className="uppercase">Ghana & Rest of the World</span>
               </div>

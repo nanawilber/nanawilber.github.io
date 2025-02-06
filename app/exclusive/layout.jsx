@@ -1,5 +1,4 @@
-// import HowItWorks from "./../../components/ui/how";
-// import TokenForm from "./../../components/tokenForm";
+import PreSave from "../../components/PreSave";
 
 export const metadata = {
   title: "Brapurple Exclusive",
@@ -18,6 +17,9 @@ export default function ExclusiveLayout({ children }) {
         <h1 className="text-2xl font-bold uppercase text-center my-10 pt-6">
           Release Date: 17th February 2025
         </h1>
+        <div className="my-10 pt-6">
+          <PreSave />
+        </div>
       </div>
     </main>
   );
