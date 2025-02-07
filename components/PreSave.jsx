@@ -11,6 +11,9 @@ const PreSave = () => {
 
   return (
     <div className="flex flex-col items-center gap-4">
+      <Button className="uppercase" onClick={handleClick}>
+        Presave here
+      </Button>
       <Image
         src="/images/ARTWORK-THANKSGIVING.jpg"
         width={300}
@@ -18,7 +21,6 @@ const PreSave = () => {
         alt="presave"
         className="object-contain hover:scale-105 rounded-lg shadow-lg"
       />
-      <Button onClick={handleClick}>Pre-Save</Button>
     </div>
   );
 };
