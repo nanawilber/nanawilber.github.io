@@ -17,7 +17,7 @@ const MusicComponent = ({ title, artwork, listenUrl, watchUrl }) => {
         />
       </div>
       <div className="text uppercase flex flex-col gap-4 justify-evenly">
-        <h3 className="text-xl font-semibold tracking-tight text-balance">
+        <h3 className="text-lg md:text-xl font-semibold tracking-tight text-balance">
           {title}
         </h3>
         <div className="flex flex-col gap-4">
