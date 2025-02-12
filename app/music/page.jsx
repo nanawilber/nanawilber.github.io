@@ -32,15 +32,19 @@ const MusicPage = () => {
   return (
     <main className="flex flex-col w-full min-h-screen items-center justify-center border ">
       <div className="container mx-auto px-4 mt-16">
-        <div className="grid xl:grid-cols-2 my-12 gap-4 md:gap-8 items-center relative">
+        <div className="grid lg:grid-cols-2 my-12 gap-8 relative">
           {musicDetails.map((music, index) => (
+            // <div
+            //   key={index}
+            //   className="w-full border border-red-500 mb-8"
+            // >
             <MusicComponent
-              key={index}
               title={music.title}
               artwork={music.artwork}
               listenUrl={music.listenUrl}
               watchUrl={music.watchUrl}
             />
+            // </div>
           ))}
         </div>
       </div>
