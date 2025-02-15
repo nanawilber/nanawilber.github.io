@@ -18,7 +18,7 @@ const MusicComponent = ({ title, artwork, listenUrl, watchUrl }) => {
         <h3 className="text-lg md:text-xl text-center font-semibold tracking-tight text-balance">
           {title}
         </h3>
-        <div className="flex flex-col mx-auto gap-4">
+        <div className="flex flex-col mx-auto gap-4 text-lowercase">
           <Link href={listenUrl}>
             <Button className="px-12" variant={"secondary"}>
               Listen
