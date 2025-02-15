@@ -8,10 +8,9 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const NavLinks = [
-  { name: "Home", slug: "home", path: "/" },
-  { name: "About", slug: "about", path: "/#about" },
-  { name: "Music", slug: "music", path: "/#music" },
-  { name: "Contact", slug: "contact", path: "/#contact" },
+  { name: "Music", slug: "music", path: "/music" },
+  { name: "Tour", slug: "tour", path: "/tour" },
+  { name: "About", slug: "epk", path: "/epk" },
   { name: "Exclusive", slug: "exclusive", path: "/exclusive" },
 ];
 

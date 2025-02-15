@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import Socials from "./ui/socials";
 
 const HeroSection = () => {
   return (
@@ -18,24 +19,24 @@ const HeroSection = () => {
             className="object-cover"
           />
         </div>
-        <div className="CTA py-6 md:py-0">
-          <div className="heading flex flex-col text-3xl ">
-            <span>
-              Meet <span className="text-primary">Brapurple</span>,
-            </span>
-            <span>The Dynamic Voice from Takoradi</span>
+        <div className="CTA py-6 md:py-0 h-full flex flex-col justify-evenly">
+          <div className="">
+            <div className="heading flex flex-col text-3xl ">
+              <span>
+                Meet <span className="text-primary">Brapurple</span>,
+              </span>
+              <span>The Dynamic Voice from Takoradi</span>
+            </div>
+            <div className="sub-heading mt-6">
+              <span>
+                Blending soulful melodies and eclectic raps, Brapurple is
+                redefining Ghanaian music. With a passion for creativity and a
+                mission to put Takoradi on the global music map, he invites you
+                to explore his world of sound and storytelling.
+              </span>
+            </div>
           </div>
-          <div className="sub-heading my-6">
-            <span>
-              Blending soulful melodies and eclectic raps, Brapurple is
-              redefining Ghanaian music. With a passion for creativity and a
-              mission to put Takoradi on the global music map, he invites you to
-              explore his world of sound and storytelling.
-            </span>
-          </div>
-          <Link href="/#about" className="socials text-primary">
-            more..
-          </Link>
+          <Socials />
         </div>
       </div>
     </section>
