@@ -1,32 +1,6 @@
 import React from "react";
 import MusicComponent from "../../components/ui/music";
-
-const musicDetails = [
-  {
-    title: "Thanksgiving PT2 (Feat. Hitz Magik)",
-    artwork: "/images/ARTWORK-THANKSGIVING.jpg",
-    listenUrl: "https://open.spotify.com",
-    watchUrl: "https://youtube.com/@brapurple",
-  },
-  {
-    title: "Thanksgiving PT2 (Feat. Hitz Magik)",
-    artwork: "/images/ARTWORK-THANKSGIVING.jpg",
-    listenUrl: "https://open.spotify.com",
-    watchUrl: "https://youtube.com/@brapurple",
-  },
-  {
-    title: "Thanksgiving PT2 (Feat. Hitz Magik)",
-    artwork: "/images/ARTWORK-THANKSGIVING.jpg",
-    listenUrl: "https://open.spotify.com",
-    watchUrl: "https://youtube.com/@brapurple",
-  },
-  {
-    title: "Thanksgiving PT2 (Feat. Hitz Magik)",
-    artwork: "/images/ARTWORK-THANKSGIVING.jpg",
-    listenUrl: "https://open.spotify.com",
-    watchUrl: "https://youtube.com/@brapurple",
-  },
-];
+import { musicDetails } from "../../lib/data";
 
 const MusicPage = () => {
   return (
@@ -35,6 +9,7 @@ const MusicPage = () => {
         <div className="grid lg:grid-cols-2 my-12 gap-8 relative">
           {musicDetails.map((music, index) => (
             <MusicComponent
+              key={index}
               title={music.title}
               artwork={music.artwork}
               listenUrl={music.listenUrl}

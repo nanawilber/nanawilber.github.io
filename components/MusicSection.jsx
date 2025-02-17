@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import { streamPlatforms } from "../lib/data";
 
 const MusicSection = () => {
   return (
@@ -10,83 +11,24 @@ const MusicSection = () => {
         </h2>
         <p>Checkout my music on all streaming platforms</p>
         <div className="flex flex-wrap gap-3 pt-4">
-          <Link
-            href="https://music.apple.com/gh/artist/brapurple/1161651000"
-            className="socials text-primary"
-            target="_blank"
-          >
-            <img
-              src="/images/apple-music.svg"
-              alt="Apple Music"
+          {streamPlatforms.map((platform, index) => (
+            <Link
+              href={platform.link}
+              key={index}
               className="w-12 h-12"
-            />
-          </Link>
-          <Link
-            href="https://open.spotify.com/artist/3DAO5GWjPhL6J9HhtjQnw4"
-            className="socials text-primary"
-            target="_blank"
-          >
-            <img
-              src="/images/spotify-green.png"
-              alt="Spotify Music"
-              className="w-12 h-12"
-            />
-          </Link>
-          <Link
-            href="https://www.boomplay.com/artists/7051155"
-            className="socials text-primary"
-            target="_blank"
-          >
-            <img
-              src="/images/boomplay.svg"
-              alt="Spotify Music"
-              className="w-12 h-12"
-            />
-          </Link>
-          <Link
-            href="https://tidal.com/browse/artist/45196776"
-            className="socials text-primary"
-            target="_blank"
-          >
-            <img
-              src="/images/tidal.svg"
-              alt="Spotify Music"
-              className="w-12 h-12 bg-white"
-            />
-          </Link>
-          <Link
-            href="https://www.deezer.com/en/artist/11130480?deferredFl=1&utm_campaign=artist&utm_source=google&utm_medium=organic"
-            className="socials text-primary"
-            target="_blank"
-          >
-            <img
-              src="/images/deezer.svg"
-              alt="Spotify Music"
-              className="w-12 h-12"
-            />
-          </Link>
-          <Link
-            href="https://music.amazon.com/artists/B01LWRQJL3/brapurple"
-            className="socials text-primary"
-            target="_blank"
-          >
-            <img
-              src="/images/amazon-music.svg"
-              alt="Spotify Music"
-              className="w-12 h-12 bg-white"
-            />
-          </Link>
-          <Link
-            href="https://audiomack.com/brapurple"
-            className="socials text-primary"
-            target="_blank"
-          >
-            <img
-              src="/images/audiomack.svg"
-              alt="Spotify Music"
-              className="w-12 h-12"
-            />
-          </Link>
+              target="_blank"
+            >
+              <img
+                src={platform.imageSrc}
+                alt={platform.name}
+                className={`w-12 h-12 ${
+                  platform.name === "tidal" || platform.name === "amazon"
+                    ? "bg-white"
+                    : ""
+                }`}
+              />
+            </Link>
+          ))}
         </div>
       </div>
     </section>

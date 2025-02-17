@@ -1,13 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Socials from "../components/ui/socials";
-
-const NavLinks = [
-  { name: "Music", link: "/music", slug: "music" },
-  { name: "Tour", link: "/tour", slug: "tour" },
-  { name: "About", link: "/epk", slug: "epk" },
-  // { name: "Exclusive", link: "/exclusive", slug: "exclusive" },
-];
+import { NavLinks } from "../lib/data";
 
 const HeroGrid = () => {
   return (
@@ -27,8 +21,10 @@ const HeroGrid = () => {
             {NavLinks.map((item, index) => (
               <Link
                 key={index}
-                href={item.link}
-                className={`text-center hover:text-primary`}
+                href={item.path}
+                className={`text-center hover:text-primary ${
+                  item.name === "home" ? "text-primary" : "hover:scale-110"
+                }`}
               >
                 {item.name}
               </Link>

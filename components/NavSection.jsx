@@ -6,13 +6,7 @@ import Link from "next/link";
 import { AlignJustify, X } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-
-const NavLinks = [
-  { name: "Music", slug: "music", path: "/music" },
-  { name: "Tour", slug: "tour", path: "/tour" },
-  { name: "About", slug: "epk", path: "/epk" },
-  // { name: "Exclusive", slug: "exclusive", path: "/exclusive" },
-];
+import { NavLinks } from "@/lib/data";
 
 const NavSection = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -49,7 +43,7 @@ const NavSection = () => {
   };
 
   return (
-    <div className="dark:bg-black/50 backdrop-blur-sm w-full fixed top-0 z-50">
+    <div className="dark:bg-black/50 backdrop-blur-sm w-full fixed top-0 z-50 lowercase">
       <div className="h-16 container mx-auto px-4 flex justify-between items-center relative">
         <Link
           href="/"

@@ -7,7 +7,6 @@ import ContactSection from "../../components/ContactSection";
 const EpkPage = () => (
   <main className="">
     <div className="container min-h-[calc(100vh-65px)] mx-auto flex flex-col mb-12">
-      {/* <p>EPK will be added shortly.. 👌👍</p> */}
       <HeroSection />
       <AboutSection />
       <MusicSection />
