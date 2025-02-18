@@ -10,7 +10,7 @@ const MusicSection = () => {
           My <span className="text-primary">Music</span>
         </h2>
         <p>Checkout my music on all streaming platforms</p>
-        <div className="flex flex-wrap gap-3 pt-4">
+        <div className="flex flex-wrap gap-4 md:gap-6 pt-4">
           {streamPlatforms.map((platform, index) => (
             <Link
               href={platform.link}
