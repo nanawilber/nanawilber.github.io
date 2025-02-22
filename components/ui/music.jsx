@@ -19,7 +19,7 @@ const MusicComponent = ({ title, artwork, listenUrl, watchUrl }) => {
           {title}
         </h3>
         <div className="flex flex-col mx-auto gap-4 text-lowercase">
-          <Link href={listenUrl}>
+          <Link href={listenUrl} target="_blank">
             <Button className="px-12" variant={"secondary"}>
               Listen
             </Button>
