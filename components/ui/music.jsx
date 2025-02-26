@@ -24,7 +24,7 @@ const MusicComponent = ({ title, artwork, listenUrl, watchUrl }) => {
               Listen
             </Button>
           </Link>
-          <Link href={watchUrl}>
+          <Link href={watchUrl} target="_blank">
             <Button className="px-12">Watch</Button>
           </Link>
         </div>
