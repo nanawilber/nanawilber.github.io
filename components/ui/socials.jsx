@@ -49,7 +49,7 @@ const Socials = () => {
   return (
     <div className="flex gap-4 lg:gap-6">
       {socialLinks.map((item, index) => (
-        <Link key={index} href={item.link}>
+        <Link key={index} href={item.link} target="_blank">
           <div className="h-[28px] w-[28px] lg:w-[40px] lg:h-[40px] flex items-center justify-center border rounded-full border-primary hover:bg-primary/50 !hover:fill-white transition duration-300 ease-in-out">
             {item.icon}
           </div>
