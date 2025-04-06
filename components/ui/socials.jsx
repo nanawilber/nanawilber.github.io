@@ -14,13 +14,13 @@ const iconStyles2 =
 
 const socialLinks = [
   {
-    name: "facebook",
-    link: "https://facebook.com/brapurple",
+    name: "x-fka-twitter",
+    link: "https://x.com/bra_purple",
     icon: <X className={iconStyles2} />,
   },
   {
-    name: "facebook",
-    link: "https://facebook.com/brapurple",
+    name: "instagram",
+    link: "https://instagram.com/brapurple",
     icon: <Instagram className={iconStyles} />,
   },
   {
@@ -29,18 +29,18 @@ const socialLinks = [
     icon: <Facebook className={iconStyles} />,
   },
   {
-    name: "facebook",
+    name: "snapchat",
     link: "https://facebook.com/brapurple",
     icon: <Snapchat className={iconStyles2} />,
   },
   {
-    name: "facebook",
-    link: "https://facebook.com/brapurple",
+    name: "tiktok",
+    link: "https://tiktok.com/@bra_purple",
     icon: <Tiktok className={iconStyles2} />,
   },
   {
-    name: "facebook",
-    link: "https://facebook.com/brapurple",
+    name: "youtube",
+    link: "https://youtube.com/@Brapurple",
     icon: <Youtube className={iconStyles} />,
   },
 ];
