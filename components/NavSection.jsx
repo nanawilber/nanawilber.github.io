@@ -47,7 +47,7 @@ const NavSection = () => {
       <div className="h-16 container mx-auto px-4 flex justify-between items-center relative">
         <Link
           href="/"
-          className="max-h-14 hover:cursor-pointer hover:scale-105"
+          className="max-h-14 hover:cursor-pointer hover:scale-105 dark:invert dark:filter dark:brightness-0 dark:contrast-100"
         >
           <Image
             src="/images/logo.png"
