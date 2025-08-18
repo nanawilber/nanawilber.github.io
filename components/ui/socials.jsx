@@ -30,7 +30,7 @@ const socialLinks = [
   },
   {
     name: "snapchat",
-    link: "https://facebook.com/brapurple",
+    link: "https://www.snapchat.com/add/brapurple?share_id=YuZhqOsbXP8&locale=en-US-u-mu-celsius",
     icon: <Snapchat className={iconStyles2} />,
   },
   {
