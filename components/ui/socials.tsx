@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ReactElement } from "react";
 
 import Facebook from "./../icons/Facebook";
 import Instagram from "./../icons/Instagram";
@@ -12,7 +13,13 @@ const iconStyles =
 const iconStyles2 =
   "w-[18px] h-[18px] lg:w-[24px] lg:h-[24px] fill-primary hover:fill-white";
 
-const socialLinks = [
+interface SocialLink {
+  name: string;
+  link: string;
+  icon: ReactElement;
+}
+
+const socialLinks: SocialLink[] = [
   {
     name: "x-fka-twitter",
     link: "https://x.com/bra_purple",

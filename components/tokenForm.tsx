@@ -1,20 +1,27 @@
 "use client";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import { Copy } from "lucide-react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
+interface FormValues {
+  name: string;
+  email: string;
+  phone: string;
+}
+
 const TokenForm = () => {
   const router = useRouter();
-  const [loading, setLoading] = useState(false);
-  const [token, setToken] = useState("");
-  const [values, setValues] = useState({
+  const [loading, setLoading] = useState<boolean>(false);
+  const [token, setToken] = useState<string>("");
+  const [values, setValues] = useState<FormValues>({
     name: "",
     email: "",
     phone: "",
   });
+
   const generateToken = () => {
     const code = Math.random().toString(36).substr(2, 6).toUpperCase();
     setToken(code);
@@ -22,28 +29,28 @@ const TokenForm = () => {
 
   const copyToken = () => {
     const codeSection = document.getElementById("codeDisplay");
-    const code = codeSection.innerText;
+    const code = codeSection?.innerText || "";
     navigator.clipboard.writeText(code).then(() => {
       alert("Copied to clipboard");
     });
   };
 
-  const validateEmail = (email) => {
+  const validateEmail = (email: string): boolean => {
     const re = /\S+@\S+\.\S+/;
     return re.test(email);
   };
 
-  const validatePhone = (phone) => {
+  const validatePhone = (phone: string): boolean => {
     const re = /^0\d{9}$/;
     return re.test(phone);
   };
 
-  const validateName = (name) => {
+  const validateName = (name: string): boolean => {
     const re = /^[a-zA-Z\s]+$/;
     return re.test(name);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     const { name, email, phone } = values;
@@ -72,10 +79,10 @@ const TokenForm = () => {
         }
       })
       .catch((err) => {
-        if (err.response.status === 400) {
+        if (err.response?.status === 400) {
           alert("Please fill all fields");
         } else {
-          alert("An error occurred. Please try again:", err.message);
+          alert("An error occurred. Please try again: " + err.message);
         }
       })
       .finally(() => {
@@ -96,7 +103,7 @@ const TokenForm = () => {
           </div>
         </div>
       )}
-      <form className="form grid w-full gap-6">
+      <form className="form grid w-full gap-6" onSubmit={handleSubmit}>
         <Input
           id="name"
           type="text"
@@ -145,7 +152,7 @@ const TokenForm = () => {
           Generate Token
         </Button>
         {token ? (
-          <Button type="submit" onClick={handleSubmit}>
+          <Button type="submit">
             {loading ? (
               <span className="animate-spin border-2 border-t-2 border-dashed border-white rounded-full w-5 h-5"></span>
             ) : (

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 
 const ThemeSwitch = () => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState<"light" | "dark">("light");
   return (
     <div className="fixed bottom-4 right-4 z-50">
       {/* ThemeSwitch 🌜🌞*/}

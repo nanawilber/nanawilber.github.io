@@ -2,6 +2,21 @@ import React from "react";
 
 import axios from "axios";
 
+interface TourEvent {
+  id: string;
+  datetime: string;
+  url: string;
+  venue: {
+    name: string;
+    city: string;
+    country: string;
+  };
+}
+
+interface TourProps {
+  tourDates: TourEvent[];
+}
+
 export async function getServerSideProps() {
   const artistName = "brapurple"; // Replace with the artist's name
   const appId = "11df4929088981a2e7617f7bcad33b5c"; // Replace with your Bandsintown app ID
@@ -9,8 +24,8 @@ export async function getServerSideProps() {
   try {
     const response = await axios.get(
       `https://rest.bandsintown.com/artists/${encodeURIComponent(
-        artistName
-      )}/events?app_id=${appId}`
+        artistName,
+      )}/events?app_id=${appId}`,
     );
 
     return {
@@ -28,7 +43,7 @@ export async function getServerSideProps() {
   }
 }
 
-export default function Tour({ tourDates }) {
+export default function Tour({ tourDates }: TourProps) {
   return (
     <div>
       <h1>Tour Dates</h1>

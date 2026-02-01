@@ -1,25 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
 import axios from "axios";
 
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     message: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {

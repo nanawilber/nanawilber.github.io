@@ -9,10 +9,10 @@ import { usePathname } from "next/navigation";
 import { NavLinks } from "@/lib/data";
 
 const NavSection = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("home");
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [activeTab, setActiveTab] = useState<string>("home");
   const pathname = usePathname();
-  const menuRef = useRef(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setActiveTab(pathname.split("/")[1]);
@@ -25,8 +25,8 @@ const NavSection = () => {
       return;
     }
 
-    const handleClickOutside = (e) => {
-      if (menuRef.current && !menuRef.current.contains(e.target)) {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
         setMenuOpen(false);
       }
     };

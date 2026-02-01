@@ -1,15 +1,22 @@
 import { NextResponse } from "next/server";
 // import nodemailer from "nodemailer";
 
-export async function POST(req) {
+interface ExclusiveFormData {
+  name: string;
+  email: string;
+  phone: string;
+  token: string;
+}
+
+export async function POST(req: Request) {
   try {
-    const { name, email, phone, token } = await req.json();
+    const { name, email, phone, token }: ExclusiveFormData = await req.json();
 
     // Basic validation
     if (!name || !email || !phone || !token) {
       return NextResponse.json(
         { message: "Please fill all fields" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -18,7 +25,7 @@ export async function POST(req) {
     if (!emailRegex.test(email)) {
       return NextResponse.json(
         { message: "Please provide a valid email address" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -26,7 +33,7 @@ export async function POST(req) {
     if (!phoneRegex.test(phone)) {
       return NextResponse.json(
         { message: "Please provide a valid phone number" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -57,13 +64,13 @@ export async function POST(req) {
 
     return NextResponse.json(
       { message: `Token received and ${email} sent to admin, ${adminEmail}` },
-      { status: 201 }
+      { status: 201 },
     );
   } catch (error) {
     console.error("Error processing request:", error);
     return NextResponse.json(
       { message: "Something went wrong, please try again" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

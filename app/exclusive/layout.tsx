@@ -1,12 +1,12 @@
 import NavSection from "../../components/NavSection";
 import Footer from "../../components/Footer";
+import { ReactNode } from "react";
 
-export const metadata = {
-  title: "Brapurple Tour and Events",
-  description: "Brapurple Upcoming Tours",
-};
+interface ExclusiveLayoutProps {
+  children: ReactNode;
+}
 
-export default function TourLayout({ children }) {
+export default function ExclusiveLayout({ children }: ExclusiveLayoutProps) {
   return (
     <>
       <NavSection />

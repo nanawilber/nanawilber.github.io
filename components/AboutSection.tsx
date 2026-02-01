@@ -2,7 +2,12 @@ import React from "react";
 import { about } from "../lib/data";
 import Image from "next/image";
 
-const images = [
+interface ImageData {
+  src: string;
+  alt: string;
+}
+
+const images: ImageData[] = [
   { src: "/images/001.jpg", alt: "image1" },
   { src: "/images/002.jpg", alt: "image2" },
   { src: "/images/003.jpg", alt: "image3" },

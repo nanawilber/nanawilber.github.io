@@ -6,7 +6,7 @@ const HowItWorks = () => {
   return (
     <div className="flex flex-col max-w-[550px]">
       <h2 className="font-semibold text-xl my-6">
-        🔥 Get Exclusive Access to Brapurple’s Unreleased Track!
+        🔥 Get Exclusive Access to Brapurple's Unreleased Track!
       </h2>
       <div className="pb-4">
         <p className="pb-4">

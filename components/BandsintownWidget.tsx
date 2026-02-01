@@ -2,7 +2,13 @@
 
 import { useEffect } from "react";
 
-export default function BandsintownWidget({ artistName }) {
+interface BandsintownWidgetProps {
+  artistName: string;
+}
+
+export default function BandsintownWidget({
+  artistName,
+}: BandsintownWidgetProps) {
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://widget.bandsintown.com/main.min.js";
