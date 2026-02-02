@@ -3,8 +3,20 @@ import { createClient } from "@supabase/supabase-js";
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 
+console.log(
+  "Supabase URL:",
+  process.env.NEXT_PUBLIC_SUPABASE_URL ? "Defined" : "Undefined",
+);
+console.log(
+  "Supabase Key:",
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ? "Defined" : "Undefined",
+);
+
 if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error("Missing Supabase environment variables");
+  // throw new Error("Missing Supabase environment variables");
+  console.error(
+    "Missing Supabase environment variables - continuing for debug",
+  );
 }
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
