@@ -92,12 +92,22 @@ const NavSection = () => {
             })}
           </div>
         )}
-        <div onClick={toggleMenu} className="md:hidden text-primary">
-          {menuOpen ? <X /> : <AlignJustify />}
+        {/* Right Side: Exclusive Button & Mobile Menu Toggle */}
+        <div className="flex items-center gap-4">
+          <Button
+            asChild
+            className="hover:scale-105 bg-primary text-primary-foreground transform scale-90 md:scale-100"
+          >
+            <Link href="/exclusive">Get Exclusive</Link>
+          </Button>
+
+          <div
+            onClick={toggleMenu}
+            className="md:hidden text-primary cursor-pointer"
+          >
+            {menuOpen ? <X /> : <AlignJustify />}
+          </div>
         </div>
-        {/* <Button className="hover:scale-105 hidden md:block">
-          <Link href="/exclusive">Get Exclusive</Link>
-        </Button> */}
       </div>
     </div>
   );
