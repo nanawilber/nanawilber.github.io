@@ -149,9 +149,16 @@ const ExclusiveContent = () => {
                   className="block w-full"
                 >
                   <button
-                    className="w-full bg-[#183128] hover:bg-[#1f4034] text-[#cfdcd6] py-3 px-6 text-xl tracking-widest font-bold uppercase transition-colors"
+                    className="w-full bg-[#183128] hover:bg-[#1f4034] text-[#cfdcd6] py-3 px-6 text-xl tracking-widest font-bold uppercase transition-colors flex items-center justify-center gap-3"
                     style={{ fontFamily: "monospace" }}
                   >
+                    <Image
+                      src="/images/bandcamp.png"
+                      alt="Bandcamp"
+                      width={24}
+                      height={24}
+                      className="brightness-0 invert"
+                    />
                     Buy On Bandcamp
                   </button>
                 </Link>
@@ -162,9 +169,16 @@ const ExclusiveContent = () => {
                   className="block w-full"
                 >
                   <button
-                    className="w-full bg-[#183128] hover:bg-[#1f4034] text-[#cfdcd6] py-3 px-6 text-xl tracking-widest font-bold uppercase transition-colors"
+                    className="w-full bg-[#183128] hover:bg-[#1f4034] text-[#cfdcd6] py-3 px-6 text-xl tracking-widest font-bold uppercase transition-colors flex items-center justify-center gap-3"
                     style={{ fontFamily: "monospace" }}
                   >
+                    <Image
+                      src="/images/even.png"
+                      alt="Even"
+                      width={24}
+                      height={24}
+                      className="brightness-0 invert"
+                    />
                     Buy On Even
                   </button>
                 </Link>
