@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ReactElement } from "react";
+import { getSocialLinks } from "@/lib/supabase";
 
 import Facebook from "./../icons/Facebook";
 import Instagram from "./../icons/Instagram";
@@ -13,55 +14,46 @@ const iconStyles =
 const iconStyles2 =
   "w-[18px] h-[18px] lg:w-[24px] lg:h-[24px] fill-primary hover:fill-white";
 
-interface SocialLink {
-  name: string;
-  link: string;
-  icon: ReactElement;
-}
+const getIconForPlatform = (platformName: string): ReactElement | null => {
+  const name = platformName.toLowerCase();
+  if (name.includes("facebook")) return <Facebook className={iconStyles} />;
+  if (name.includes("instagram")) return <Instagram className={iconStyles} />;
+  if (name.includes("snapchat")) return <Snapchat className={iconStyles2} />;
+  if (name.includes("tiktok")) return <Tiktok className={iconStyles2} />;
+  if (name.includes("twitter") || name.includes("x"))
+    return <X className={iconStyles2} />;
+  if (name.includes("youtube")) return <Youtube className={iconStyles} />;
+  return null;
+};
 
-const socialLinks: SocialLink[] = [
-  {
-    name: "x-fka-twitter",
-    link: "https://x.com/bra_purple",
-    icon: <X className={iconStyles2} />,
-  },
-  {
-    name: "instagram",
-    link: "https://instagram.com/brapurple",
-    icon: <Instagram className={iconStyles} />,
-  },
-  {
-    name: "facebook",
-    link: "https://facebook.com/brapurple",
-    icon: <Facebook className={iconStyles} />,
-  },
-  {
-    name: "snapchat",
-    link: "https://www.snapchat.com/add/brapurple?share_id=YuZhqOsbXP8&locale=en-US-u-mu-celsius",
-    icon: <Snapchat className={iconStyles2} />,
-  },
-  {
-    name: "tiktok",
-    link: "https://tiktok.com/@bra_purple",
-    icon: <Tiktok className={iconStyles2} />,
-  },
-  {
-    name: "youtube",
-    link: "https://youtube.com/@Brapurple",
-    icon: <Youtube className={iconStyles} />,
-  },
-];
+const Socials = async () => {
+  let socialLinks = [];
 
-const Socials = () => {
+  try {
+    socialLinks = await getSocialLinks();
+  } catch (error) {
+    console.error("Error fetching social links:", error);
+  }
+
+  // If no links in DB, returns empty or null
+  if (!socialLinks || socialLinks.length === 0) {
+    return null;
+  }
+
   return (
     <div className="flex gap-4 lg:gap-6">
-      {socialLinks.map((item, index) => (
-        <Link key={index} href={item.link} target="_blank">
-          <div className="h-[28px] w-[28px] lg:w-[40px] lg:h-[40px] flex items-center justify-center border rounded-full border-primary hover:bg-primary/50 !hover:fill-white transition duration-300 ease-in-out">
-            {item.icon}
-          </div>
-        </Link>
-      ))}
+      {socialLinks.map((item) => {
+        const icon = getIconForPlatform(item.platform_name);
+        if (!icon) return null;
+
+        return (
+          <Link key={item.id} href={item.platform_url} target="_blank">
+            <div className="h-[28px] w-[28px] lg:w-[40px] lg:h-[40px] flex items-center justify-center border rounded-full border-primary hover:bg-primary/50 !hover:fill-white transition duration-300 ease-in-out">
+              {icon}
+            </div>
+          </Link>
+        );
+      })}
     </div>
   );
 };

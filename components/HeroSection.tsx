@@ -2,8 +2,20 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Socials from "./ui/socials";
+import { getHeroContent } from "@/lib/supabase";
+import { NavLinks } from "../lib/data";
 
-const HeroSection = () => {
+const HeroSection = async () => {
+  let heroContent;
+
+  try {
+    heroContent = await getHeroContent();
+  } catch (error) {
+    console.error("Error fetching hero content:", error);
+  }
+
+  const heroImage = heroContent?.hero_image_url || "/images/Brapurple.jpg";
+
   return (
     <section
       id="home"
@@ -12,29 +24,29 @@ const HeroSection = () => {
       <div className="grid md:grid-cols-2 gap-4 md:gap-8 items-center relative">
         <div className="w-[calc(100%-160px)] md:w-[calc(100%-80px)] lg:w-[calc(100%-160px)] aspect-square mx-auto mt-16 border-8 border-primary flex rounded-full transition duration-300 ease-in-out transform hover:scale-105  overflow-hidden">
           <Image
-            src="/images/Brapurple.jpg"
+            src={heroImage}
             alt="Brapurple"
-            width="1080"
-            height="1350"
-            className="object-cover"
+            width={1080}
+            height={1350}
+            className="object-cover w-full h-full"
+            priority
           />
         </div>
-        <div className="CTA py-6 md:py-0 h-full flex flex-col justify-evenly">
-          <div className="">
-            <div className="heading flex flex-col text-3xl ">
-              <span>
-                Meet <span className="text-primary">Brapurple</span>,
-              </span>
-              <span>The Dynamic Voice from Takoradi</span>
-            </div>
-            <div className="sub-heading mt-6">
-              <span>
-                Blending soulful melodies and eclectic raps, Brapurple is
-                redefining Ghanaian music. With a passion for creativity and a
-                mission to put Takoradi on the global music map, he invites you
-                to explore his world of sound and storytelling.
-              </span>
-            </div>
+        <div className="flex flex-col h-full w-full items-center justify-evenly gap-8 py-6 md:py-0">
+          <div className="flex flex-col gap-6 lowercase font-medium text-lg">
+            {NavLinks.map((item) => (
+              <Link
+                key={item.name}
+                href={item.path}
+                className={`text-center hover:text-primary transition-colors ${
+                  item.name.toLowerCase() === "home"
+                    ? "text-primary"
+                    : "hover:scale-110 transform duration-200"
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
           </div>
           <Socials />
         </div>
