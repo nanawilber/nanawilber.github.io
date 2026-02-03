@@ -23,8 +23,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
   // You can replace this with your actual public key from env
   // const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || "";
   // For now using a placeholder or checking if it exists
-  const publicKey =
-    process.env.NEXT_PUBLIC_PAYSTACK_KEY || "pk_test_placeholder";
+  const publicKey = "pk_live_7bfd4ebc1588c8a006c4b550289f7d8fc26e1ea0";
 
   // Debugging: Check if key is loaded
   // console.log("Paystack Public Key Loaded:", publicKey);
@@ -43,10 +42,10 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
     e.preventDefault();
     if (!email) return;
 
-    if (publicKey === "pk_test_placeholder" || !publicKey) {
-      alert("Please set NEXT_PUBLIC_PAYSTACK_KEY in your .env.local file");
-      return;
-    }
+    // if (publicKey === "pk_test_placeholder" || !publicKey) {
+    //   alert("Please set NEXT_PUBLIC_PAYSTACK_KEY in your .env.local file");
+    //   return;
+    // }
 
     const onSuccessCallback = (reference: any) => {
       // Implementation for whatever you do with reference
