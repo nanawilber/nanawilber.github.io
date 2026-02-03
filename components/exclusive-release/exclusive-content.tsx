@@ -122,7 +122,7 @@ const ExclusiveContent = () => {
 
           {/* CTA Section */}
           <div className="w-full max-w-md space-y-6 text-center">
-            <h3 className="text-lg md:text-xl font-medium tracking-wide mb-6">
+            <h3 className="text-2xl md:text-xl font-bold tracking-wide mb-6">
               GET EARLY ACCESS HERE
             </h3>
 
@@ -144,7 +144,7 @@ const ExclusiveContent = () => {
             ) : (
               <div className="flex flex-col gap-4 w-full px-8 md:px-0">
                 <Link
-                  href="https://brapurple.bandcamp.com/"
+                  href="https://brapurple.bandcamp.com/track/see"
                   target="_blank"
                   className="block w-full"
                 >
@@ -177,7 +177,7 @@ const ExclusiveContent = () => {
                       alt="Even"
                       width={24}
                       height={24}
-                      className="brightness-0 invert"
+                      className=""
                     />
                     Buy On Even
                   </button>
