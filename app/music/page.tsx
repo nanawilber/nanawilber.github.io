@@ -14,6 +14,8 @@ const MusicPage = () => {
               artwork={music.artwork}
               listenUrl={music.listenUrl}
               watchUrl={music.watchUrl}
+              slug={music.slug}
+              type={music.type}
             />
           ))}
         </div>
