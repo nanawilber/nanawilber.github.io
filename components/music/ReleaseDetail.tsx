@@ -109,8 +109,8 @@ const ReleaseDetail = ({ release }: ReleaseDetailProps) => {
                 {/* Default Listen Button (fallback/additional) */}
                 <Button size="lg" className="rounded-full px-8 gap-2" asChild>
                   <Link href={release.listenUrl} target="_blank">
-                    <Play className="w-4 h-4 fill-current" />
-                    More Links
+                    {/* <Play className="w-4 h-4 fill-current" /> */}
+                    Audiomack
                   </Link>
                 </Button>
 
