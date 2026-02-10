@@ -21,6 +21,7 @@ interface ReleaseDetailProps {
     description?: string;
     tiktokUrl?: string;
     spotifyUrl?: string;
+    appleMusicUrl?: string;
     youtubeMusicUrl?: string;
     tidalUrl?: string;
     lyricsUrl?: string;
@@ -72,14 +73,14 @@ const ReleaseDetail = ({ release }: ReleaseDetailProps) => {
                     </Link>
                   </Button>
                 )}
-                {release.tidalUrl && (
+                {release.appleMusicUrl && (
                   <Button
                     size="lg"
                     className="rounded-full px-8 gap-2 bg-black hover:bg-black/90 text-white border-none"
                     asChild
                   >
-                    <Link href={release.tidalUrl} target="_blank">
-                      Tidal
+                    <Link href={release.appleMusicUrl} target="_blank">
+                      Apple Music
                     </Link>
                   </Button>
                 )}
@@ -171,7 +172,7 @@ const ReleaseDetail = ({ release }: ReleaseDetailProps) => {
         </div>
 
         {/* Video Embed Section (Commented Out for Promo) */}
-        {/* {release.watchUrl && (
+        {release.watchUrl && (
           <div className="mt-24 max-w-5xl mx-auto">
             <h2 className="text-2xl font-bold mb-8 text-center">Music Video</h2>
             <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl border border-border/50 bg-card">
@@ -186,7 +187,7 @@ const ReleaseDetail = ({ release }: ReleaseDetailProps) => {
               ></iframe>
             </div>
           </div>
-        )} */}
+        )}
 
         <MoreMusic currentSlug={release.slug} />
       </div>
