@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { Button } from "./ui/button";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { AlignJustify, X } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { NavLinks } from "@/lib/data";
+import { Button } from "./ui/button";
 
 const NavSection = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -98,7 +98,7 @@ const NavSection = () => {
             asChild
             className="hover:scale-105 bg-primary text-primary-foreground transform scale-90 md:scale-100"
           >
-            <Link href="/exclusive">Get Exclusive</Link>
+            <Link href="/track/see">Checkout Latest</Link>
           </Button>
 
           <div
