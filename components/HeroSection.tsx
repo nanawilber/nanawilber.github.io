@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Socials from "./ui/socials";
-import { getHeroContent } from "@/lib/supabase";
+import { getHeroContent, HeroContent } from "@/lib/supabase";
 import { NavLinks } from "../lib/data";
 
 const HeroSection = async ({
@@ -10,7 +10,7 @@ const HeroSection = async ({
 }: {
   variant?: "home" | "epk";
 }) => {
-  let heroContent;
+  let heroContent: HeroContent | null = null;
 
   try {
     heroContent = await getHeroContent();

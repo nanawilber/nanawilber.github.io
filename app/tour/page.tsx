@@ -1,11 +1,11 @@
 import React from "react";
 import BandsintownWidget from "../../components/BandsintownWidget";
-import { getTourDates } from "@/lib/supabase";
+import { getTourDates, TourDate } from "@/lib/supabase";
 import { format } from "date-fns";
 import { Button } from "@/components/ui/button";
 
 const TourPage = async () => {
-  let tourDates: any[] | null = [];
+  let tourDates: TourDate[] = [];
 
   try {
     tourDates = await getTourDates();

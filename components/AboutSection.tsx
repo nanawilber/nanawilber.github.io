@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import { getAboutSections } from "@/lib/supabase";
+import { getAboutSections, AboutSection as AboutSectionType } from "@/lib/supabase";
 
 const AboutSection = async () => {
-  let aboutSections = [];
+  let aboutSections: AboutSectionType[] = [];
 
   try {
     aboutSections = await getAboutSections();

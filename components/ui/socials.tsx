@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ReactElement } from "react";
-import { getSocialLinks } from "@/lib/supabase";
+import { getSocialLinks, SocialLink } from "@/lib/supabase";
 
 import Facebook from "./../icons/Facebook";
 import Instagram from "./../icons/Instagram";
@@ -27,7 +27,7 @@ const getIconForPlatform = (platformName: string): ReactElement | null => {
 };
 
 const Socials = async () => {
-  let socialLinks = [];
+  let socialLinks: SocialLink[] = [];
 
   try {
     socialLinks = await getSocialLinks();

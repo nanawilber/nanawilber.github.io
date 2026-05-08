@@ -79,13 +79,26 @@ export interface TourDate {
 
 // Helper functions for fetching data
 export async function getReleases() {
-  const { data, error } = await supabase
-    .from("releases")
-    .select("*")
-    .order("display_order", { ascending: true });
+  try {
+    if (!supabase) {
+      console.warn("Supabase client not initialized");
+      return [];
+    }
 
-  if (error) throw error;
-  return data as Release[];
+    const { data, error } = await supabase
+      .from("releases")
+      .select("*")
+      .order("display_order", { ascending: true });
+
+    if (error) {
+      console.error("Error fetching releases:", error);
+      return [];
+    }
+    return (data as Release[]) || [];
+  } catch (error) {
+    console.error("Unexpected error in getReleases:", error);
+    return [];
+  }
 }
 
 export async function getAboutSections() {

@@ -1,9 +1,9 @@
 import Link from "next/link";
 import React from "react";
-import { getSocialLinks } from "@/lib/supabase";
+import { getSocialLinks, SocialLink } from "@/lib/supabase";
 
 const MusicSection = async () => {
-  let socialLinks: any[] | null = [];
+  let socialLinks: SocialLink[] = [];
 
   try {
     socialLinks = await getSocialLinks();
