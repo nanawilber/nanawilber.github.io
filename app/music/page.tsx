@@ -17,11 +17,13 @@ const MusicPage = async () => {
         <div className="grid lg:grid-cols-2 my-12 gap-8 relative">
           {releases?.map((release) => (
             <MusicComponent
-              key={release.id}
-              title={release.title}
-              artwork={release.artwork_url}
-              listenUrl={release.listen_url}
-              watchUrl={release.watch_url}
+              key={index}
+              title={music.title}
+              artwork={music.artwork}
+              listenUrl={music.listenUrl}
+              watchUrl={music.watchUrl}
+              slug={music.slug}
+              type={music.type}
             />
           ))}
           {(!releases || releases.length === 0) && (
