@@ -12,6 +12,29 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params;
+  const track = musicDetails.find((t) => t.slug === slug);
+
+  if (!track) return {};
+
+  return {
+    title: track.title,
+    description: `Listen to "${track.title}" by Brapurple. Available on all streaming platforms.`,
+    openGraph: {
+      title: `${track.title} | Brapurple`,
+      description: `New music from Brapurple: "${track.title}". Stream it now.`,
+      images: [{ url: track.artwork }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${track.title} | Brapurple`,
+      description: `Listen to "${track.title}" on streaming platforms.`,
+      images: [track.artwork],
+    },
+  };
+}
+
 export default async function TrackPage({ params }: Props) {
   const { slug } = await params;
   const track = musicDetails.find((t) => t.slug === slug);
