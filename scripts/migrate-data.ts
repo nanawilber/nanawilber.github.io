@@ -1,5 +1,5 @@
-// Data Migration Script for Supabase CMS
-// This script migrates data from lib/data.js to your Supabase database
+import * as dotenv from "dotenv";
+dotenv.config({ path: ".env.local" });
 
 import { supabase } from "../lib/supabase";
 import { about, streamPlatforms, musicDetails } from "../lib/data";

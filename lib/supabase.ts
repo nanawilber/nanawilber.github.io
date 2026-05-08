@@ -6,22 +6,6 @@ const supabaseUrl =
 const supabaseAnonKey =
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "example-key";
 
-// console.log(
-//   "Supabase URL:",
-//   process.env.NEXT_PUBLIC_SUPABASE_URL ? "Defined" : "Undefined",
-// );
-// console.log(
-//   "Supabase Key:",
-//   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ? "Defined" : "Undefined",
-// );
-
-// if (!supabaseUrl || !supabaseAnonKey) {
-//   // throw new Error("Missing Supabase environment variables");
-//   console.error(
-//     "Missing Supabase environment variables - continuing for debug",
-//   );
-// }
-
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 // Database types
@@ -79,13 +63,26 @@ export interface TourDate {
 
 // Helper functions for fetching data
 export async function getReleases() {
-  const { data, error } = await supabase
-    .from("releases")
-    .select("*")
-    .order("display_order", { ascending: true });
+  try {
+    if (!supabase) {
+      console.warn("Supabase client not initialized");
+      return [];
+    }
 
-  if (error) throw error;
-  return data as Release[];
+    const { data, error } = await supabase
+      .from("releases")
+      .select("*")
+      .order("display_order", { ascending: true });
+
+    if (error) {
+      console.error("Error fetching releases:", error);
+      return [];
+    }
+    return (data as Release[]) || [];
+  } catch (error) {
+    console.error("Unexpected error in getReleases:", error);
+    return [];
+  }
 }
 
 export async function getAboutSections() {
